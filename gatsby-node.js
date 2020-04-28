@@ -42,7 +42,7 @@ exports.createPages = async ({ actions }) => {
   }
 
   createPage({
-    path: `/index.html`,
+    path: `/`,
     component: path.resolve(`./src/templates/index.jsx`),
     context: {
       // Data passed to context is available
