@@ -1,3 +1,5 @@
+const { v4: uuidv4 } = require('uuid');
+
 const path = require("path")
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -26,8 +28,8 @@ exports.createPages = async ({ actions }) => {
   const { createPage } = actions
 
   const paths = []
-  for (let i = 1; i < 10; i++) {
-    const id = i
+  for (let i = 1; i < 1000000; i++) {
+    const id = uuidv4()
     const sitePath = `/${i}`
     paths.push(sitePath)
     createPage({
