@@ -26,7 +26,7 @@ exports.createPages = async ({ actions }) => {
   const { createPage } = actions
 
   const paths = []
-  for (let i = 1; i < 100; i++) {
+  for (let i = 1; i < 10; i++) {
     const id = i
     const sitePath = `/${i}`
     paths.push(sitePath)
