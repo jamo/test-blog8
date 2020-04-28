@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid")
 
 const path = require("path")
 /**
@@ -31,7 +31,9 @@ exports.createPages = async ({ actions }) => {
   for (let i = 1; i < 1000000; i++) {
     const id = uuidv4()
     const sitePath = `/${i}`
-    paths.push(sitePath)
+    if (i < 100) {
+      paths.push(sitePath)
+    }
     createPage({
       path: sitePath,
       component: path.resolve(`./src/templates/spam.jsx`),
@@ -49,7 +51,7 @@ exports.createPages = async ({ actions }) => {
     context: {
       // Data passed to context is available
       // in page queries as GraphQL variables.
-      paths
+      paths,
     },
   })
 }
