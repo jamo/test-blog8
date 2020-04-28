@@ -1,6 +1,7 @@
 const { v4: uuidv4 } = require("uuid")
 
 const path = require("path")
+const fs = require("fs")
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -34,15 +35,7 @@ exports.createPages = async ({ actions }) => {
     if (i < 100) {
       paths.push(sitePath)
     }
-    createPage({
-      path: sitePath,
-      component: path.resolve(`./src/templates/spam.jsx`),
-      context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
-        slug: id,
-      },
-    })
+    fs.writeFileSync(`./public/${sitePath}.html`, `hello ${id}`)
   }
 
   createPage({
