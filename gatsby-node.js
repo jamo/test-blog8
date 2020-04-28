@@ -1,3 +1,4 @@
+const path = require("path")
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -19,4 +20,34 @@ exports.onPreBuild = function() {
   console.log(exec(`env`))
 
   console.log(`aw yeah`)
+}
+
+exports.createPages = async ({ actions }) => {
+  const { createPage } = actions
+
+  const paths = []
+  for (let i = 1; i < 100; i++) {
+    const id = i
+    const sitePath = `/${i}`
+    paths.push(sitePath)
+    createPage({
+      path: sitePath,
+      component: path.resolve(`./src/templates/spam.jsx`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: id,
+      },
+    })
+  }
+
+  createPage({
+    path: `/index.html`,
+    component: path.resolve(`./src/templates/index.jsx`),
+    context: {
+      // Data passed to context is available
+      // in page queries as GraphQL variables.
+      paths
+    },
+  })
 }
