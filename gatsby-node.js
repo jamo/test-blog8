@@ -31,7 +31,7 @@ exports.createPages = async ({ actions }) => {
   const paths = []
   for (let i = 1; i < 10000; i++) {
     const id = uuidv4()
-    const sitePath = `/${i}`
+    const sitePath = `/${id}`
     if (i < 100) {
       paths.push(sitePath)
     }
