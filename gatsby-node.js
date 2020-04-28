@@ -31,11 +31,11 @@ exports.createPages = async ({ actions }) => {
   const paths = []
   for (let i = 1; i < 10000; i++) {
     const id = uuidv4()
-    const sitePath = `/${id}`
+    const sitePath = `/${id}.html`
     if (i < 100) {
       paths.push(sitePath)
     }
-    fs.writeFileSync(`./public/${sitePath}.html`, `hello ${id}`)
+    fs.writeFileSync(`./public${sitePath}`, `hello ${id}`)
   }
 
   createPage({
