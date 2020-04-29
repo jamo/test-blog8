@@ -29,7 +29,7 @@ exports.createPages = async ({ actions }) => {
   const { createPage } = actions
 
   const paths = []
-  for (let i = 1; i < 300000; i++) {
+  for (let i = 1; i < 30; i++) {
     const id = uuidv4()
     const sitePath = `/${id}.html`
     if (i < 100) {
